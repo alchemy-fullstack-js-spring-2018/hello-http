@@ -14,4 +14,13 @@ describe('HTTP APP', () => {
             });
     });
 
+    it('GET Says Hello with name & salutation', () => {
+        return chai.request(app)
+            .get('/greeting/Ryan')
+            .query('salutation=yo')
+            .then(response => {
+                assert.equal(response.text, 'yo Ryan');
+            });
+    });
+
 });
