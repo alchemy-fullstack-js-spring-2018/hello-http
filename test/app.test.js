@@ -5,11 +5,11 @@ const { assert } = chai;
 const app = require('../lib/app');
 
 describe('app tests', () => {
-    it('responds hello to name when get to route /greeting/name', () => {
+    it('responds hello to name when make GET to route /greeting/name', () => {
         return chai.request(app)
-            .get('/greeting/Charlie')
+            .get('/')
             .then(response => {
-                assert.equal(response.text, 'Hello Charlie');
+                assert.equal(response.text, 'hello');
             });
     });
 });
