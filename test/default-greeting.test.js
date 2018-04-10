@@ -6,7 +6,8 @@ describe('default greeting', () => {
         assert.equal(defaultGreeting(), 'hello stranger');
     });
     
-    // it('says custom saluation', () => {
-    //     assert.equal(defaultGreeting('yo'), 'yo world');
-    // });
+    it('says custom salutation', () => {
+        const name = 'steele';
+        assert.equal(defaultGreeting(name), 'hello steele');
+    });
 });
