@@ -8,9 +8,9 @@ describe('http app', () => {
 
     it('gets greeting on GET /', () => {
         return chai.request(app)
-            .get('/')
+            .get('/greeting/')
             .then(response => {
-                assert.equal(response.text, 'hello http');
+                assert.equal(response.text, 'hello stranger');
             });
     });
 
