@@ -37,6 +37,14 @@ describe('HTTP app', () => {
                 expect(response.body).to.have.property('fact');
             });
     });
+    
+    it('returns a sea fact on /seafact path', () => {
+        return chai.request(app)
+            .get('/seafact')
+            .then(response => {
+                expect(response.body).to.have.property('seaFact');
+            });
+    });
 
     it('sends 404 response if path not found', () => {
         return chai.request(app)
