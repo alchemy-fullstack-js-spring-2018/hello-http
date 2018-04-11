@@ -51,11 +51,11 @@ describe('http app', () => {
             });
     });
 
-    it('returns object with random fact property on  GET /fact', () => {
+    it.only('returns object with random fact property on  GET /fact', () => {
         return chai.request(app)
-            .get('/greeting/henry')
-            .then(({ text }) => {
-                assert.deepEqual(text, 'hello henry');
+            .get('/fact')
+            .then(({ body }) => {
+                assert.include(body.fact, 'http');
             });
     });
 
