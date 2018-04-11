@@ -4,9 +4,15 @@ chai.use(chaiHttp);
 const { assert } = chai;
 const app = require('../lib/app');
 
+//define GET method @ url(path) /greeting/<name>
+//**say hello unless a greeting is defined a la /greeting/person?salutation=frogs */
+//**if a name is not included in the above string, respond with "stranger" */
+//define GET method @ url(path) /fact where an object with a random fact property is returned
+//**make sure content-type is application/json, and all facts contain the word HTTP */
+
 describe('http app', () => {
 
-    it.only('says hello world on GET /', () => {
+    it('says hello world on GET /', () => {
         // Pass app to chai.request, which will start (call .listen())
         // and auto-close server after request
         return chai.request(app)
@@ -17,7 +23,7 @@ describe('http app', () => {
             });
     });
 
-    it.only('says hello stranger on GET /greeting', () => {
+    it('says hello stranger on GET /greeting', () => {
         // Pass app to chai.request, which will start (call .listen())
         // and auto-close server after request
         return chai.request(app)
@@ -30,29 +36,26 @@ describe('http app', () => {
 
     it('says custom greeting on GET / with query', () => {
         return chai.request(app)
-            .get('/')
+            .get('/greeting/')
             .query('salutation=yo')
             .then(({ text }) => {
-                assert.equal(text, 'yo world');
+                assert.equal(text, 'yo stranger');
             });
     });
 
-    it('returns cat object on GET /cats/garfield', () => {
+    it('says custom nome on GET / with name', () => {
         return chai.request(app)
-            .get('/cats/garfield')
-            .then(response => {
-                assert.deepEqual(response.body, { 
-                    name: 'garfield',
-                    type: 'orange tabby' 
-                });
+            .get('/greeting/henry')
+            .then(({ text }) => {
+                assert.deepEqual(text, 'hello henry');
             });
     });
 
-    it('returns all cats on GET /cats', () => {
+    it('returns object with random fact property on  GET /fact', () => {
         return chai.request(app)
-            .get('/cats')
-            .then(response => {
-                assert.equal(response.body.length, 4);
+            .get('/greeting/henry')
+            .then(({ text }) => {
+                assert.deepEqual(text, 'hello henry');
             });
     });
 
@@ -60,26 +63,10 @@ describe('http app', () => {
         return chai.request(app)
             .get('/bad')
             .then(
-                // success handler
-                () => {
-                    throw new Error('unexpected successful response');
-                },
-                // failure handler
                 response => {
                     assert.equal(response.status, 404);
                     // assert.equal(response.text, 'Sorry...')
                 }
             ); 
-    });
-
-    it('echos POST to /echo', () => {
-        const obj = { foo: true };
-
-        return chai.request(app)
-            .post('/echo')
-            .send(obj)
-            .then(({ body }) => {
-                assert.deepEqual(body, obj);
-            });
     });
 });
