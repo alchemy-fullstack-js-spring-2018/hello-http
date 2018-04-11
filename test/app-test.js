@@ -3,9 +3,9 @@ const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const { assert } = chai;
 const app = require('../lib/app');
-// const facts = require('../lib/facts');
+const facts = require('../lib/facts');
 
-describe ('http app', () => {
+describe ('E2E', () => {
 
     
     it('says hello world on GET /', () => {
@@ -35,11 +35,11 @@ describe ('http app', () => {
             });
     });
 
-    // it('returns fact', () => {
-    //     return chai.request(app)
-    //         .get('/fact')
-    //         .then(({ body }) => {
-    //             assert.include(body.fact, 'http');
-    //         });
-    // });
+    it('returns fact', () => {
+        return chai.request(app)
+            .get('/fact')
+            .then(({ body }) => {
+                assert.include(body.fact, 'http');
+            });
+    });
 });
