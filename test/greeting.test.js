@@ -3,11 +3,11 @@ const { assert } = require('chai');
 
 describe('greetings function', () => {
 
-    it.only('defalut says hello stranger', () => {
+    it('defalut says hello stranger', () => {
         assert.equal(greeting(), 'hello stranger');
     });
 
-    it.only('custom greeting', () => {
+    it('custom greeting', () => {
         assert.equal(greeting('what up', 'steve'), 'what up steve');
     });
 });
