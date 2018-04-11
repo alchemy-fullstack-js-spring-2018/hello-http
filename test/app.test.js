@@ -32,4 +32,11 @@ describe(('http app'), () => {
             });
     });
 
+    it('return 404 on bad path', () => {
+        return chai.request(app)
+            .get('/bad')
+            .then(response => {
+                assert.equal(response.status, 404);                
+            });
+    });
 });
