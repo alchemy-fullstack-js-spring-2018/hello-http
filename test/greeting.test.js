@@ -1,7 +1,7 @@
 const { assert } = require('chai');
 const greeting = require('../lib/greeting');
 
-describe('greeting', () => {
+describe('greeting function', () => {
     it('defaults to "hello, stranger"', () => {
         assert.strictEqual(greeting(), 'hello, stranger');
     });
