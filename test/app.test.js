@@ -1,7 +1,7 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
-const { assert } = chai;
+const { assert, expect } = chai;
 const app = require('../lib/app');
 
 describe(('http app'), () => {
@@ -23,4 +23,13 @@ describe(('http app'), () => {
                 assert.equal(response.text, 'what up steve');
             });
     });
+
+    it('returns random fact on get /fact', () => {
+        return chai.request(app)
+            .get('/fact')
+            .then(response => {
+                expect(response.body.fact).to.deep.include('HTTP');
+            });
+    });
+    
 });
