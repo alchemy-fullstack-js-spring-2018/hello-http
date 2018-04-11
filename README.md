@@ -12,8 +12,8 @@ After cloning this repo to your machine, run the server by entering "npm start" 
 
 Visit the following paths to see the HTTP server at work, or choose your own name and salutation:
 
-localhost:3000/greeting
-localhost:3000/greeting?salutation=howdy
+localhost:3000/greeting  
+localhost:3000/greeting?salutation=howdy  
 localhost:3000/greeting/erik?salutation=buenos+dias
 
 localhost:3000/fact
