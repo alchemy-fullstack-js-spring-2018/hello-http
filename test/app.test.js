@@ -14,4 +14,15 @@ describe('http app', () => {
             });
     });
 
+    it('returns fact object on GET /http-facts/fact1', () => {
+        return chai.request(app)
+            .get('/http-facts/fact1')
+            .then(response => {
+                assert.deepEqual(response.body, { 
+                    name: 'fact1',
+                    type: 'cool http fact' 
+                });
+            });
+    });
+
 });
