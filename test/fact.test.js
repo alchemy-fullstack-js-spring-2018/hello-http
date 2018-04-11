@@ -5,13 +5,13 @@ describe('get fact', ()  => {
 
     const facts = [
         {
-            fact: 'fact 1'
+            fact: 'HTTP stands for HyperText Transfer Protocol.'
         },
         {
-            fact: 'fact 2'
+            fact: 'HTTP was first used in 1991.'
         },
         {
-            fact: 'fact 3'
+            fact: 'HTTP is a stateless protocol'
         }
     ];
     
