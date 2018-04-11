@@ -1,7 +1,7 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
-const { assert } = chai;
+const { assert, expect } = chai;
 const app = require('../lib/app');
 
 describe('HTTP app', () => {
@@ -21,11 +21,20 @@ describe('HTTP app', () => {
                 assert.equal(response.text, 'Hello Norman!');
             });
     });
+
     it('Says {salutation} {name} if given a name and salutation', () => {
         return chai.request(app)
             .get('/greeting/Norman?salutation=Yo')
             .then(response => {
                 assert.equal(response.text, 'Yo Norman!');
+            });
+    });
+
+    it('returns a fact on /fact path', () => {
+        return chai.request(app)
+            .get('/greeting')
+            .then(response => {
+                expect(response).to.have.property('fact')
             });
     });
 });
