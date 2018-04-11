@@ -10,7 +10,7 @@ describe('GET - Fact', () => {
         return chai.request(app)
             .get('/fact')
             .then(response => {
-                assert.ok(/http/.test(response.text));
+                assert.ok(/HTTP/.test(response.text));
             });
     });
 
