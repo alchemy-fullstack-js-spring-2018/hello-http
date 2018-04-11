@@ -6,11 +6,21 @@ const app = require('../lib/app');
 
 describe(('http app'), () => {
     
-    it('say hello world on GET /', () => {
+    it('say default greeting hello stranger on GET /', () => {
         return chai.request(app)
             .get('/')
             .then(response => {
-                assert.equal(response.text, 'hello world');
+                assert.equal(response.text, 'hello stranger');
+            });
+    });
+
+    it('says custom greeding on GET / with query', () => {
+        return chai.request(app)
+            .get('/')
+            .query('salutation=what%20up')
+            .query('name=steve')
+            .then(response => {
+                assert.equal(response.text, 'what up steve');
             });
     });
 });
