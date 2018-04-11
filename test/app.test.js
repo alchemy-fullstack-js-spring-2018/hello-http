@@ -25,9 +25,9 @@ describe('hello http app', () => {
 
     it('can greet a requested person', () => {
         return chai.request(app)
-            .get('/greeting/keli?salutation=hola')
-            .then(response => {
-                assert.strictEqual(response.text, 'hello, keli');
+            .get('/greeting/keli')
+            .then(({ text }) => {
+                assert.strictEqual(text, 'hello, keli');
             });
     });
 });
