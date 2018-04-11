@@ -8,7 +8,11 @@ const facts = require('../lib/facts');
 describe('GET - Fact', () => {
 
     it('GET Returns random fact', () => {
-        console.log(facts());
+        return chai.request(app)
+            .get('/fact')
+            .then(response => {
+                assert.ok(/http/.test(response.toString()));
+            });
     });
 
 });
