@@ -30,7 +30,7 @@ describe('http app', () => {
         return chai.request(app)
             .get('/fact')
             .then(response => {
-                assert.equal(response.text.includes('http'), true);
+                assert.equal(response.text.includes('HTTP'), true);
             });
     });
     it('return 404 on bad path', () => {
