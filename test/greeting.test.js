@@ -3,7 +3,6 @@ const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const { assert } = chai;
 const app = require('../lib/app');
-const facts = require('../lib/facts');
 
 describe('http app', () => {
     it('says custom greeting on /greeting/<name>', () => {
@@ -27,11 +26,18 @@ describe('http app', () => {
                 assert.equal(response.text, 'hello frodo');
             });
     });
-    it.only('returns a random fact when visiting /fact', () => {
+    it('returns a random fact when visiting /fact', () => {
         return chai.request(app)
             .get('/fact')
             .then(response => {
                 assert.equal(response.text.includes('http'), true);
             });
+    });
+    it('return 404 on bad path', () => {
+        return chai.request(app)
+            .get('/bad')
+            .then(response => {
+                assert.equal(response.status, 404);
+            }); 
     });
 });
