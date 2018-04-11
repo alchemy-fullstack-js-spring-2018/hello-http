@@ -2,7 +2,6 @@ const chai = require('chai');
 const { assert } = chai;
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
-
 const app = require('../lib/app');
 
 describe('hello http app', () => {
@@ -37,5 +36,28 @@ describe('hello http app', () => {
             .then(({ body }) => {
                 assert.include(body.fact.toLowerCase(), 'http');
             });
+    });
+
+    it.skip('returns a 404 if path is not recognized', () => {
+        return chai.request(app)
+            .get('/bad')
+            .then(
+                ({ status }) => {
+                    assert.equal(status, 404);
+                });
+    });
+
+    it('returns a 404 if path is not recognized', () => {
+        return chai.request(app)
+            .get('/bad')
+            .then(
+                ({ text, status }) => {
+                    console.log('status:', status, '\ntext:', text); // eslint-disable-line
+                    throw new Error('that shouldn\'t have worked');
+                },
+                ({ status }) => {
+                    assert.equal(status, 404);
+                }
+            );
     });
 });
