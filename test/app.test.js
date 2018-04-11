@@ -2,6 +2,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const { assert } = chai;
+var expect = chai.expect;
 const app = require('../lib/app');
 
 describe('app tests', () => {
@@ -20,5 +21,13 @@ describe('app tests', () => {
             .then(({ text }) => {
                 assert.equal(text, 'Hola Charlie');
             });
-    })
+    });
+
+    it('responds with a random HTTP fact', () => {
+        return chai.request(app)
+            .get('/fact')
+            .then(response => {
+                expect(response.body).to.have.property('fact');
+            });
+    });
 });
