@@ -12,4 +12,13 @@ describe('app tests', () => {
                 assert.equal(response.text, 'Hello Charlie');
             });  
     });
+
+    it('responds with custom salutation to name', () => {
+        return chai.request(app)
+            .get('/greeting/Charlie')
+            .query('salutation=Hola')
+            .then(({ text }) => {
+                assert.equal(text, 'Hola Charlie');
+            });
+    })
 });
