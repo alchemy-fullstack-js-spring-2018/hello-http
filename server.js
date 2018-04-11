@@ -1,5 +1,5 @@
-const app = require('./lib.app');
-const http = require('./http');
+const app = require('./lib/app');
+const http = require('http');
 
 
 //creates a port
@@ -13,7 +13,8 @@ server.on('request', listener);*/
 
 
 module.exports = server.listen(PORT, () => {
-    console.log('listening at port', server.address().port);
+    
+    console.log('listening at port', server.address().port); // eslint-disable-line
 });
 
 

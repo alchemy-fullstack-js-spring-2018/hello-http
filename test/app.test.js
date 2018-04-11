@@ -1,19 +1,23 @@
 //import { request } from 'http';
 
 const chai = require('chai');
-const chaiHttp = require('chaiHttp');
+const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const {assert} = chai;
-const app = require('./lib/app');
+const app = require('../lib/app');
+const request = chai.request(app);
+
 //const server = require('./lib/server');
 
 
 //returns a greeting on GET
 describe('http app', () => {
     
-    return chai.request(app)
-        .get('/')
-        .then(response => {
-            assert.deepEqual(response.body, 'hello stranger');
-        });
+    it('getting greeting', () => {
+        return request
+            .get('/app')
+            .then(response => {
+                assert.equal(response.text, 'hello stranger');
+            });
+    });
 });
