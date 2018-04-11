@@ -4,13 +4,13 @@ chai.use(chaiHttp);
 const { assert } = chai;
 const app = require('../lib/app');
 
-describe('GET - Fact', () => {
+describe('GET - 404', () => {
 
-    it('Returns random http fact', () => {
+    it('Properly handles 404', () => {
         return chai.request(app)
-            .get('/fact')
+            .get('/wherever')
             .then(response => {
-                assert.ok(/HTTP/.test(response.text));
+                assert.equal(response.status, 404);
             });
     });
 
