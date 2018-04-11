@@ -13,4 +13,19 @@ describe('HTTP app', () => {
                 assert.equal(response.text, 'Hello stranger!');
             });
     });
+
+    it('Says Hello {name} if given a name', () => {
+        return chai.request(app)
+            .get('/greeting/Norman')
+            .then(response => {
+                assert.equal(response.text, 'Hello Norman!');
+            });
+    });
+    it('Says {salutation} {name} if given a name and salutation', () => {
+        return chai.request(app)
+            .get('/greeting/Norman?salutation=Yo')
+            .then(response => {
+                assert.equal(response.text, 'Yo Norman!');
+            });
+    });
 });
