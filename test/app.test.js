@@ -27,9 +27,9 @@ describe(('http app'), () => {
     it('returns random fact on get /fact', () => {
         return chai.request(app)
             .get('/fact')
-            .then(response => {
-                expect(response.body.fact).to.deep.include('HTTP');
+            .then(({ body }) => {
+                expect(body.fact).to.include('HTTP');
             });
     });
-    
+
 });
