@@ -51,7 +51,7 @@ describe('http app', () => {
             });
     });
 
-    it.only('returns object with random fact property on  GET /fact', () => {
+    it('returns object with random fact property on  GET /fact', () => {
         return chai.request(app)
             .get('/fact')
             .then(({ body }) => {
