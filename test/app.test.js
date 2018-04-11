@@ -10,7 +10,7 @@ describe('hello http app', () => {
         return chai.request(app)
             .get('/greeting')
             .then(({ text }) => {
-                assert.strictEqual(text, 'hello, stranger');
+                assert.equal(text, 'hello, stranger');
             });
     });
 
@@ -19,7 +19,7 @@ describe('hello http app', () => {
             .get('/greeting')
             .query('salutation=greetings')
             .then(({ text }) => {
-                assert.strictEqual(text, 'greetings, stranger');
+                assert.equal(text, 'greetings, stranger');
             });
     });
 
@@ -27,7 +27,15 @@ describe('hello http app', () => {
         return chai.request(app)
             .get('/greeting/keli')
             .then(({ text }) => {
-                assert.strictEqual(text, 'hello, keli');
+                assert.equal(text, 'hello, keli');
+            });
+    });
+
+    it('provides a fact on GET /fact', () => {
+        return chai.request(app)
+            .get('/fact')
+            .then(({ body }) => {
+                assert.include(body.fact.toLowerCase(), 'http');
             });
     });
 });
