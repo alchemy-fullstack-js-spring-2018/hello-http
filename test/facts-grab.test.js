@@ -7,7 +7,7 @@ describe('Facts Grab', () => {
     it('gets a random fact about http', () => {
         factsGrab()
             .then(response => {
-                assert.ok(/http/.test(response));
+                assert.ok(/http/.toLower().test(response));
             });
     });
 });
