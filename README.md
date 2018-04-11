@@ -17,6 +17,9 @@ GET requests to greeting:
 GET requests to /fact
 * `/fact` returns a random fact about HTTP and an object with a 'fact' property
 
+GET requests to /seafact
+* `/seafact` return a random fact about a sea creature
+
 Bad requests return a 404 response. 
 
 
