@@ -15,7 +15,7 @@ describe('get fact', ()  => {
         }
     ];
     
-    it.only('gets fact 1', () => {
+    it.only('gets random fact', () => {
         expect(facts).to.deep.include(fact());
     });
 
