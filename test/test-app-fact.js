@@ -3,7 +3,6 @@ const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const { assert } = chai;
 const app = require('../lib/app');
-const facts = require('../lib/facts');
 
 describe('GET - Fact', () => {
 
@@ -11,7 +10,7 @@ describe('GET - Fact', () => {
         return chai.request(app)
             .get('/fact')
             .then(response => {
-                assert.ok(/http/.test(response.toString()));
+                assert.ok(/http/.test(response.text));
             });
     });
 
