@@ -21,5 +21,9 @@ Bad requests return a 404 response.
 
 
 ## Resources
-HTTP facts gathered from the following:
+HTTP facts gathered from:
 * https://hpbn.co/brief-history-of-http/
+Sea Facts gathered from:
+* http://www.uwphotographyguide.com/10-underwater-creature-facts
+* https://listverse.com/2013/10/28/10-fascinating-facts-about-marine-life/
+* Memory 
