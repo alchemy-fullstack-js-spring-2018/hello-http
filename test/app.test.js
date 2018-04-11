@@ -10,7 +10,7 @@ describe('hello http app', () => {
         return chai.request(app)
             .get('/greeting') //go get the route
             .then (({ text }) => {
-                assert.equal(text, 'hello');
+                assert.equal(text, 'hola');
             });
 
     });
