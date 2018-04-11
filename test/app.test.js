@@ -10,18 +10,24 @@ describe('hello http app', () => {
         return chai.request(app)
             .get('/greeting') //go get the route
             .then (({ text }) => {
-                assert.equal(text, 'hola');
+                assert.equal(text, 'hola, name');
             });
 
     });
 
-    // it('says greeting on GET /greeting/<name>', () => {
-    //     return chai.request(app)
-    //         .get('/')
-    //         .query('saluation=Hello')
-    //         .then(({ text }) => {
-    //             assert.equal(text, 'hello');
-    //         });
-    // });
+    it('says greeting on GET /greeting/<name>', () => {
+        return chai.request(app)
+            .get('/greeting')
+            .query('saluation=greetings')
+            .then(({ text }) => {
+                assert.equal(text, 'greeting, name');
+            });
+    });
+
+    it('greet a person', () =>{
+        return chai.request(app)
+            .get('/greeting/john');
+
+    });
         
 });
