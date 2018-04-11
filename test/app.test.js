@@ -32,9 +32,9 @@ describe('HTTP app', () => {
 
     it('returns a fact on /fact path', () => {
         return chai.request(app)
-            .get('/greeting')
+            .get('/fact')
             .then(response => {
-                expect(response).to.have.property('fact')
+                expect(response.body).to.have.property('fact');
             });
     });
 });
