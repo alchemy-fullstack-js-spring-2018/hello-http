@@ -4,7 +4,7 @@ Hello HTTP
 Use the Node.js `http` module to create an http server. 
 
 ## Directions
-
+[]
 Your server should:
 1. Respond with a greeting if the method is `GET` and url (path) is `/greeting/<name>`
   * If query string specifies a `salutation` like `/greeting/jane?salutation=yo`, use that
