@@ -10,7 +10,7 @@ describe(('http app'), () => {
         return chai.request(app)
             .get('/')
             .then(response => {
-                assert.equal(response.text, 'hello world');
+                assert.equal(response.text, 'hello stranger');
             });
     });
 });
