@@ -17,7 +17,8 @@ describe(('http app'), () => {
     it('says custom greeding on GET / with query', () => {
         return chai.request(app)
             .get('/')
-            .query('salutation=what%20up?name=steve')
+            .query('salutation=what%20up')
+            .query('name=steve')
             .then(response => {
                 assert.equal(response.text, 'what up steve');
             });
