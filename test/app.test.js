@@ -10,6 +10,6 @@ describe('app tests', () => {
             .get('/greeting/Charlie')
             .then(response => {
                 assert.equal(response.text, 'Hello Charlie');
-            });
+            });  
     });
 });
