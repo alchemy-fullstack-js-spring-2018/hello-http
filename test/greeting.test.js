@@ -8,6 +8,6 @@ describe('greetings function', () => {
     });
 
     it.only('custom greeting', () => {
-        assert.equal(greeting('what up', 'steve'), 'hello freind');
+        assert.equal(greeting('what up', 'steve'), 'what up steve');
     });
 });
