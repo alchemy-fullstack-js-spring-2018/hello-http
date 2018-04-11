@@ -7,9 +7,9 @@ const app = require('../lib/app');
 describe('app tests', () => {
     it('responds hello to name when make GET to route /greeting/name', () => {
         return chai.request(app)
-            .get('/')
+            .get('/greeting/Charlie')
             .then(response => {
-                assert.equal(response.text, 'hello');
+                assert.equal(response.text, 'Hello Charlie');
             });
     });
 });
