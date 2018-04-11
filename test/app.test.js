@@ -37,4 +37,12 @@ describe('HTTP app', () => {
                 expect(response.body).to.have.property('fact');
             });
     });
+
+    it('sends 404 response if path not found', () => {
+        return chai.request(app)
+            .get('/nope')
+            .then(response => {
+                assert.equal(response.status, 404);
+            }); 
+    })
 });
