@@ -18,9 +18,3 @@ module.exports = server.listen(PORT, () => {
 });
 
 
-//respond with greeting
-//get.(`lib/greeting/<name>`);
-
-// Responds with one random of (at least) three interesting facts about http 
-
-

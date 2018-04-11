@@ -7,9 +7,6 @@ const {assert} = chai;
 const app = require('../lib/app');
 const request = chai.request(app);
 
-//const server = require('./lib/server');
-
-
 //returns a greeting on GET
 describe('http app', () => {
     
