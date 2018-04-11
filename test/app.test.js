@@ -16,13 +16,30 @@ describe('http app', () => {
 
     it('returns fact object on GET /http-facts/fact1', () => {
         return chai.request(app)
-            .get('/http-facts/fact1')
+            .get('/http-facts/0')
             .then(response => {
                 assert.deepEqual(response.body, { 
-                    name: 'fact1',
-                    type: 'cool http fact' 
+                    fact: 'cool http fact' 
                 });
             });
+    });
+
+    it('returns random fact object on GET /http-facts', () => {
+        return chai.request(app)
+            .get('/http-facts')
+            .then(response => {
+                assert.ok(/http/.test(response.text));
+            });
+    });
+
+    it('return 404 on bad path', () => {
+        return chai.request(app)
+            .get('/bad')
+            .then(
+                response => {
+                    assert.equal(response.status, 404);
+                }
+            ); 
     });
 
 });
