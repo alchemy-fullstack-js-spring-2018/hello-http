@@ -3,7 +3,6 @@ const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const { assert } = chai;
 const app = require('../lib/app');
-const facts = require('../lib/facts');
 
 describe ('E2E', () => {
 
