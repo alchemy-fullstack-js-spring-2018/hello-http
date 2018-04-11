@@ -6,7 +6,7 @@ const app = require('../lib/app');
 
 describe('GET - Greeting', () => {
 
-    it('GET Says Hello with name (no salutation)', () => {
+    it('Says Hello with name (no salutation)', () => {
         return chai.request(app)
             .get('/greeting/Ryan')
             .then(response => {
@@ -14,7 +14,7 @@ describe('GET - Greeting', () => {
             });
     });
 
-    it('GET Says Hello with name & salutation', () => {
+    it('Says Hello with name & salutation', () => {
         return chai.request(app)
             .get('/greeting/Ryan')
             .query('salutation=yo')
@@ -23,7 +23,7 @@ describe('GET - Greeting', () => {
             });
     });
 
-    it('GET Says Hello without name & salutation', () => {
+    it('Says Hello without name & salutation', () => {
         return chai.request(app)
             .get('/greeting')
             .then(response => {
@@ -31,7 +31,7 @@ describe('GET - Greeting', () => {
             });
     });
 
-    it('GET Says salutation without name', () => {
+    it('Says salutation without name', () => {
         return chai.request(app)
             .get('/greeting')
             .query('salutation=yo')
