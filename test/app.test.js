@@ -10,7 +10,7 @@ describe('http app', () => {
     
     it('getting greeting', () => {
         return request
-            .get('/app')
+            .get('/greeting')
             .then(response => {
                 assert.equal(response.text, 'hello stranger');
             });
