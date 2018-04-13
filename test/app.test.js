@@ -8,11 +8,14 @@ const request = chai.request(app);
 //returns a greeting on GET
 describe('http app', () => {
     
-    it('getting greeting', () => {
+    it.skip('getting greeting', () => {
         return request
             .get('/greeting')
             .then(response => {
                 assert.equal(response.text, 'hello stranger');
+                setTimeout(//function, 3000);
+                );
             });
+        
     });
 });
