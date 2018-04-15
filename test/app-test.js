@@ -30,4 +30,22 @@ describe('http app', () =>{
 
 
     });
+
+    it('return a not found 404 error on bad path', () =>{
+        return chai.request(app)
+            .get('/bad')
+            .then(
+                //in case of success
+                () => {
+                    // throw new Error('unexpected successful response');
+                    //trying to get an error in case of having a successful path.
+                    //we are testing an inverted condition.
+                },
+                //in case of error
+                response => {
+                    assert.equal(response.status, 404);
+                    // assert.equal(response.text, 'Sorry, cannot get path');
+                }
+            );
+    })
 });
