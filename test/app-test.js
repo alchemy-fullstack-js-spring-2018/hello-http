@@ -17,19 +17,6 @@ describe('http app', () =>{
     //         });
     // });
 
-    it('returns dog object on GET /dog', () =>{
-        
-        return chai.request(app)
-            .get('/dog')
-            .then(response => {
-                assert.deepEqual(response.body, { //response.body returns an object.
-                    name: 'Homer',
-                    type: 'Staffordshire Terrier'
-                });
-            });
-
-
-    });
     it('returns fact objects on GET /fact', () => {
 
         return chai.request(app)
