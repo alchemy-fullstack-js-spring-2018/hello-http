@@ -36,11 +36,7 @@ describe('http app', () =>{
         return chai.request(app)
             .get('/fact')
             .then(response => {
-                assert.deepEqual(response.body, { //response.body returns an object.
-                    factOne: 'it takes 142.18 licks to reach the center of a Tootsie pop.',
-                    factTwo: 'it is impossible to sneeze with your eyes open.',
-                    factThree: 'The "hashtag" key on a keyboard is called an octotroph.'
-                });
+                assert.ok(/HTTP/.test(response.text));
             });
 
 

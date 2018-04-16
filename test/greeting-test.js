@@ -1,7 +1,7 @@
 const basicGreeting = require('../lib/greeting');
 const { assert } = require('chai');
 
-it('greeting returns hello world', () => {
+it('greeting returns hello stranger', () => {
 
-    assert.equal(basicGreeting(), 'Hello World');
+    assert.equal(basicGreeting(), 'Hello Stranger');
 });
