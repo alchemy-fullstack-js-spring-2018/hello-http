@@ -36,7 +36,7 @@ describe('http app', () =>{
         return chai.request(app)
             .get('/fact')
             .then(response => {
-                assert.ok(/HTTP/.test(response.text));
+                assert.ok(/HTTP/.test(response.text)); //assert.ok from lab.md, HTTP must match string.
             });
 
 
