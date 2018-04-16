@@ -1,7 +1,6 @@
 const basicGreeting = require('../lib/greeting');
 const { assert } = require('chai');
-// const chai = require('chai');
-// const app = require('../lib/app');
+
 
 describe('greeting test', () =>{
 

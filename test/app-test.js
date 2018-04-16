@@ -6,26 +6,22 @@ const app = require('../lib/app.js');
 
 describe('http app', () =>{
 
-    // it('says hello world on GET /', () =>{
-    //     //pass app to chai.request, which will start with call.listen()
-    //     //then we want to auto close the server after the request.
-    //     return chai.request(app)
-    //         //method and path
-    //         .get('/')
-    //         .then(response => {
-    //             assert.equal(response.text, 'hello world'); //response.text returns a string.
-    //         });
-    // });
 
-    it('returns fact objects on GET /fact', () => {
+    it('returns random fact on GET /fact', () => {
 
         return chai.request(app)
             .get('/fact')
             .then(response => {
                 assert.ok(/HTTP/.test(response.text)); //assert.ok from lab.md, HTTP must match string.
             });
+    });
 
-
+    it('return custom greeting', () => {
+        return chai.request(app)
+            .get('/greeting/Jeff?salutation=Hello')
+            .then(response => {
+                assert.equal(response.text, 'Hello Jeff');
+            });
     });
 
     it('return a not found 404 error on bad path', () =>{
