@@ -3,7 +3,6 @@ const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const { assert } = chai; //equivelent to const assert = chai.assert
 const app = require('../lib/app.js');
-const fact = require('../lib/facts')
 
 describe('http app', () =>{
 
@@ -58,5 +57,5 @@ describe('http app', () =>{
                     // assert.equal(response.text, 'Sorry, cannot get path');
                 }
             );
-    })
+    });
 });
