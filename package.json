@@ -1,7 +1,7 @@
 {
   "name": "hello-http",
   "version": "1.0.0",
-  "description": "## Author: Ryan Manro",
+  "description": "",
   "main": "server.js",
   "directories": {
     "lib": "lib",
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/rmanro/hello-http.git"
   },
-  "author": "",
+  "author": "Ryan Manro",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rmanro/hello-http/issues"
