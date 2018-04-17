@@ -21,7 +21,7 @@ describe('returns greeting on GET / ', () => {
             //method and path
             .get('/greeting')
             .then(response => {
-                assert.equal(response.text, 'hello stranger');
+                assert.equal(response.text, 'welcome katlyn');
             });
         
     });
