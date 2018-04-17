@@ -21,7 +21,10 @@ describe('returns greeting on GET / ', () => {
             //method and path
             .get('/greeting')
             .then(response => {
-                assert.equal(response.text, 'welcome katlyn');
+                assert.deepEqual(response.body, {
+                    name: 'katlyn',
+                    greeting: 'welcome'
+                });
             });
         
     });
