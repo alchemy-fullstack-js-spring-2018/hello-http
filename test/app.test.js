@@ -30,4 +30,12 @@ describe('tests', () => {
                 expect(response.body).to.have.property('fact');
             });
     });
+
+    it('returns 404 for bad request', () => {
+        return chai.request(app)
+            .get('/error')
+            .then(response => {
+                assert.equal(response.status, 404);
+            });
+    });
 });
