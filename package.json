@@ -1,7 +1,7 @@
 {
   "name": "hello-http",
   "version": "1.0.0",
-  "description": "",
+  "description": "simple http server for custom greetings",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
