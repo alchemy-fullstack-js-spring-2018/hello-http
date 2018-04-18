@@ -15,7 +15,7 @@ describe('greeting tests', () => {
     });
 
     it('greeting with both name and salutation if provided', () => {
-        const greetingSalutation = greeting('/greeting/Jack', { salutation: 'Yo' });
-        assert.equal(greetingSalutation, 'Yo Jack');
+        const nameSalutation = greeting('/greeting/Jack', { salutation: 'Yo' });
+        assert.equal(nameSalutation, 'Yo Jack');
     });
 });
