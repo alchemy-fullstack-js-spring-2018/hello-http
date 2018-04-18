@@ -7,5 +7,5 @@ const server = http.createServer(app);
 
 server.listen(PORT, () => {
     // eslint-disable-next-line
-    console.log('server started');
+    console.log('server started, 3000');
 });
